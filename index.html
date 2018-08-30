@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>TrivialTrivia</title>
+</head>
+<body>
+
+<!-- this button is created to start the game -->
+	<button class='startGame'>Click Me to Play!</button>
+<!-- a wrapper div holds all the items that will be displayed after the startGame button is clicked -->
+	<div class='wrapper'>
+
+		<h1 class='header'>Totally Trivial Trivia Game!</h1>
+<!-- div to hold countdown timer -->
+		<div class='timer' id='timeLeft'></div>
+<!-- div to hold all the questions -->
+		<div class='form' id='questions-container'></div>
+
+	</div>
+<!-- button to end game if player finishes the game before the time is up -->
+	<button id='doneButton'>Done</button>
+<!-- message to be displayed when time is up -->
+	<div class='message' id='messageDiv'></div>
+<!-- div to display the results of the game -->
+	<div class='results'></div>
+<!-- linking to jquery and the local js file -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type='text/javascript' src='assets/javascript/game.js'></script>	
+</body>
+</html>
