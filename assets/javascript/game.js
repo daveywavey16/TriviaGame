@@ -5,66 +5,51 @@ $( document ).ready(function() {
 	var game = {
 		questions: [
 		{
-	   		question: 'What is the capital of Vermont?',
-	   		possibles: ['Battleboro', 'Montpelier', 'Barre City', 'Burlington'],
+	   		question: 'What are boyfriend jeans?',
+	   		possibles: ['Form-fitting, tapered jeans that everyone wears', 'High-waisted jeans that are all the rage', 'Baggy jeans that look like they belong to your boyfriend', 'A brand of denim pant only sold in Tokyo', ' The pants Robin wore in Batman Forever'],
 	   		id: 'question-one',
-	   		answer: 1
+	   		answer: 3
 		}, {
-			question: 'What is the capital of Illinois?',
-			possibles: ['Springfield', 'Chicago', 'Rockford', 'Joliet', 'Evanston'],
+			question: 'Where is the worldwide epicenter of hipsterism?',
+			possibles: ['Parkdale, Toronto, Ontario', 'Williamsburg, Brooklyn, New York', 'Austin, Texas', 'Aurora, Illinois', 'The Epcot Center, Orlando, Florida'],
 			id: 'question-two',
 			answer: 0
 		}, {
-			question: 'What is the capital of California?',
-			possibles: ['San Francisco', 'Los Angeles', 'Mendocino', 'San Diego', 'Sacramento'],
+			question: 'The Internet.',
+			possibles: ['You mean the Net?', 'Is that supposed to be a question?', 'I have a blog', 'I have a Twitter', 'Ayyyyy!'],
 			id: 'question-three',
-			answer: 4
-		}, {
-			question: 'What is the capital of Indiana?',
-			possibles: ['Fort Wayne', 'Indianapolis', 'Terre Haute', 'Bloomington', 'Indianapolis'],
-			id: 'question-four',
 			answer: 1
 		}, {
-			question: 'What is the capital of Alabama?',
-			possibles: ['Montgomery', 'Birmingham', 'Mobile', 'Tuscaloosa', 'Gulf Shores'],
-			id: 'question-five',
+			question: 'Santogold or MIA?',
+			possibles: ['Santogold', 'MIA', 'I prefer flan', 'I dont follow soccer', 'I like all Diplo mixtapes'],
+			id: 'question-four',
 			answer: 0
 		}, {
-			question: 'What is the capital of Colorado?',
-			possibles: ['Boulder', 'Denver', 'Vale', 'Fort Collins', 'Grand Junction'],
+			question: 'I get around Toronto with my...',
+			possibles: ['H2 Hummer', 'Rollerblades', 'Skateboard/longboard', 'Scooter', 'Rusty bicycle'],
+			id: 'question-five',
+			answer: 4
+		}, {
+			question: 'Favourite Harrison Ford movie?',
+			possibles: ['Mosquito Coast', 'Frantic', 'Indiana Jones and the Temple of Doom', 'Sabrina', 'Clear and Present Danger'],
 			id: 'question-six',
-			answer: 1
+			answer: 3
 
 		}, {
-			question: 'What is the capital of Delaware?',
-			possibles: ['Wilmington', 'Newark', 'Dover', 'Lewes', 'Middletown'],
+			question: 'Whats your favourite hipster joint in the city?',
+			possibles: ['Anything on Ossington', 'CIRCA', 'I only hang out in Ethiopian restaurants', 'Queen West and College', 'There are a few good pubs in the east end'],
 			id: 'question-seven',
 			answer: 2
 		}, {
-			question: 'What is the capital of Florida?',
-			possibles: ['Miami', 'Tampa', 'Jacksonville', 'Daytona Beach', 'Talahassee'],
+			question: 'Which Toronto neighbourhood do you most associate with?',
+			possibles: ['Yonge and Eglinton, but you call it Young and Eligible', 'Brockton Village', 'Queen West', 'West Queen West', 'The Junction'],
 			id: 'question-eight',
 			answer: 4
 		}, {
-			question: 'What is the capital of Idaho?',
-			possibles: ['Coeur dAlene', 'Idaho Falls', 'Boise', 'Meridian', 'Twin Falls'],
+			question: 'Youve always wondered...',
+			possibles: ['Whatever happened to fallout shelters in a McCarthy-era New York?', 'Why dont children like the taste of coffee?', 'Is there anything more satisfying than going to the Fader blog?', 'Has downloading music always been this much fun?', 'When is this over?'],
 			id: 'question-nine',
-			answer: 2
-		}, {
-			question: 'What is the capital of Michigan?',
-			possibles: ['Macinack Island', 'Lansing', 'Grand Rapids', 'Ann Arbor', 'Flint'],
-			id: 'question-ten',
 			answer: 1
-		}, {
-			question: 'What is the capital of Washington State?',
-			possibles: ['Seattle', 'Bellevue', 'Spokane', 'Olympia', 'Bellingham'],
-			id: 'question-eleven',
-			answer: 3
-		}, {
-			question: 'What is the best kind of coffee?',
-			possibles: ['Intelligentsia', 'Blue Bottle', 'Starbucks', 'Caribou', 'none of the above'],
-			id: 'question-twelve',
-			answer: 4
 		}
 		]}
 
@@ -125,7 +110,7 @@ $( document ).ready(function() {
 function formTemplate(data) {
 // the first variable relates the form field for question with the data in the object for
 // each question so that the questions can be inputed into that form field
-	var qString = "<form id='questionOne'>"+ data.question +"<br>";
+	var qString = "<form id='questionOne'><h1>"+ data.question +"</h1>";
 // this variable to access the question object's possibles array needed to answer each question
 	var possibles = data.possibles;
 // a for loop to go through the possibles array for each question to add the values of each possibles
@@ -134,10 +119,10 @@ function formTemplate(data) {
 	for (var i = 0; i < possibles.length; i++) {
 		var possible = possibles[i];
 		console.log(possible);
-		qString = qString + "<input type='radio' name='"+data.id+"' value="+ i +">"+possible;
+		qString = qString + "<div class='checkbox'><label><input type='radio' name='"+data.id+"' value="+ i +"></label>"+possible;
 
 	}
-	return qString + "</form>";
+	return qString + "</div></form>";
 }
 window.formTemplate = formTemplate;
 
