@@ -63,6 +63,7 @@ $( document ).ready(function() {
 // when the start button clicked, the div with the questions that was hidden is shown
 		$('.wrapper').show();
 		console.log('hello');
+		$(".img-fluid").hide();
 
 		$(this).hide();
 	});
@@ -88,12 +89,13 @@ $( document ).ready(function() {
         
         	// Show the number in the #timeLeft div.
         	$('#timeLeft').html('<h2>' + number + " seconds"+'</h2>');
+        	
 	    }
 	    
        else {
 	       
 		$('.message').html('time up!');
-		
+		$("#question, .timer #doneButton").hide();
         // Checks to see what you answered after timeout
         checkAnswers();
         
@@ -110,7 +112,7 @@ $( document ).ready(function() {
 function formTemplate(data) {
 // the first variable relates the form field for question with the data in the object for
 // each question so that the questions can be inputed into that form field
-	var qString = "<form id='questionOne'><h1>"+ data.question +"</h1>";
+	var qString = "<h1>"+ data.question +"</h1>";
 // this variable to access the question object's possibles array needed to answer each question
 	var possibles = data.possibles;
 // a for loop to go through the possibles array for each question to add the values of each possibles
@@ -122,7 +124,7 @@ function formTemplate(data) {
 		qString = qString + "<div class='checkbox'><label><input type='radio' name='"+data.id+"' value="+ i +"></label>"+possible;
 
 	}
-	return qString + "</div></form>";
+	return qString + "</div>";
 }
 window.formTemplate = formTemplate;
 
@@ -164,6 +166,7 @@ function checkAnswers (){
 	var correct = 0;
 	var incorrect = 0;
 	var unAnswered =0
+	
 
 // for loop iterates through each question and passes the questions at each index first into
 // the isCorrect function to see if they match the indices of correct answers, and if they do,
@@ -171,7 +174,8 @@ function checkAnswers (){
 	for (var i = 0; i<game.questions.length; i++) {
 		if (isCorrect(game.questions[i])) {
 			correct++;
-		} else {
+		}
+		 else {
 // then this statement runs the questions at each index through the checkAnswered function
 // to determine whether the user clicked an answer, or did not click an answer, so that
 // incorrect and unAnswered scores can be delineated from each other
@@ -212,5 +216,6 @@ function checkAnswered(question){
 	checkAnswers();
 	clearTimeout(endTime);
 	$("#messageDiv").html("Game Over!");
+	$("#question, #doneButton, .timer").hide();
 	})
 });
